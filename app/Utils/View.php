@@ -11,6 +11,22 @@
      class View{
 
         /**
+         * Varíaveis padrões da View
+         * View standard variables 
+         * @var array
+         */
+        private static $vars = [];
+
+        /**
+         * Método responsável por definir os dados iniciais da classe
+         * Method responsible for defining the initial data of the class 
+         * @param array $vars
+         */
+        public static function init($vars =[]){
+            self::$vars = $vars;
+        }
+
+        /**
          * Método responsável por retornar o conteúdo de uma view
          * Método responsável por retornar o conteúdo de uma view
          * @param string $view
@@ -31,6 +47,9 @@
         public static function render($view, $vars = []){
             //Conteúdo da View
             $contentView = self::getContentView($view);
+            
+            //Mescla de variáveis do View
+            $vars = array_merge(self::$vars,$vars);
 
             //Cheves do Array de Variáveis
             $keys = array_keys($vars);
