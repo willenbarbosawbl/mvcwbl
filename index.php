@@ -6,20 +6,12 @@
      * Project URL: https://github.com/willenbarbosawbl/mvcwbl 
      */
 
-    require_once __DIR__."/vendor/autoload.php";
+    require_once __DIR__."/includes/app.php";
 
     use \App\Http\Router;
-    use App\Utils\View;
-
-    define('URL', 'http://mvcwbl.srv.br');
-
-    //Define o valor padrão das variáveis
-    View::init([
-        'URL' => URL
-    ]);
-
+    
     //Inicia o Router
-    $obRouter = new Router(URL);
+    $obRouter = new Router(getenv('URL'));
 
     //Inclui as rotas de páginas
     require_once __DIR__."/routes/pages.php";

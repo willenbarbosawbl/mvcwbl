@@ -23,6 +23,20 @@
         }
     ]);
 
+    // Rota de Depoimentos
+    $obRouter->get('/depoimentos',[
+        function($request){
+            return new Response(200, Pages\Depoimentos::getDepoimentos($request));
+        }
+    ]);
+
+    // Rota de Depoimentos
+    $obRouter->post('/depoimentos',[
+        function($request){
+            return new Response(200, Pages\Depoimentos::insertTestimony($request));
+        }
+    ]);
+
     // Rota Dinâminca
     $obRouter->get('/pagina/{idPagina}',[
         function($idPagina){

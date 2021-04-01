@@ -43,7 +43,7 @@
          * @param strin $url
          */
         public function __construct($url){
-            $this->request  = new Request();
+            $this->request  = new Request($this);
             $this->url      = $url;
             $this->setPrefix();
         }
@@ -184,6 +184,14 @@
             $xUri = strlen($this->prefix) ? explode($this->prefix, $uri) : [$uri];
             //Retorna a URI sem prefixo
             return end($xUri);
+        }
+
+        /**
+         * Método responsável por retornar a URL atual
+         * @return string
+         */        
+        public function getCurrentUrl(){
+            return $this->url.$this->getUri();     
         }
 
         /**

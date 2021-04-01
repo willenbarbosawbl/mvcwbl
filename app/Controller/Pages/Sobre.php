@@ -28,7 +28,7 @@
                 "name_site" => $obOrganization->name_site,
                 "dateyear" => date("Y")
             ];
-            $content = View::render('pages/home',$vars);
+            $content = View::render('pages/sobre',$vars);
 
             //Retorna a View da Página
             return parent::getPage("Sobre >> MVC WBL", $content, $vars);

@@ -1,0 +1,26 @@
+<h1>Depoimentos</h1>
+<hr>
+<section class="testimonies">
+    {{pagination}}
+    {{itens}}
+    {{pagination}}
+</section>
+<hr>
+<section class="form">
+    <h3>Envie seu depoimento</h3>
+    <form action="?page=1" method="post">
+        <aside class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" class="form-control" required>
+        </aside>
+
+        <aside class="form-group">
+            <label for="depoimento">Depoimento:</label>
+            <textarea name="depoimento" cols="30" rows="10" class="form-control" required></textarea>
+        </aside>
+
+        <aside class="form-group mt-3">
+            <button type="submit" class="btn btn-success">Enviar</button>
+        </aside>
+    </form>
+</section>
