@@ -10,6 +10,7 @@
     use \Closure;
     use \Exception;
     use \ReflectionFunction;
+    use \App\Http\Middleware\Queue;
 
     class Router{
 
@@ -76,6 +77,9 @@
                     continue;
                 }
             }
+
+            //Moddlewares da Rota
+            $params['middlewares'] = $params['middlewares'] ?? [];
 
             //Variáveis da rota
             $params['variables'] = [];
@@ -217,8 +221,11 @@
                     $args[$name] = $route['variables'][$name] ?? '';
                 }
 
+                //RETORNA A EXECUÇÃO DA FILA DE MIDDLEWARES
+                return (new Queue($route['middlewares'], $route['controller'], $args))->next($this->request);
+
                 //Retorna a execução da função
-                return call_user_func_array($route['controller'], $args);
+                //return call_user_func_array($route['controller'], $args);
             }catch(Exception $e){
                 return new Response($e->getCode(), $e->getMessage());
             }
