@@ -16,9 +16,8 @@
     //Inclui as rotas de páginas
     require_once __DIR__."/routes/pages.php";
 
+    //Inclui as rotas do painel
+    require_once __DIR__."/routes/admin.php";
+
     //Imprimi Response da Rota
     $obRouter->run()->sendResponse();
-
-    /*echo '<pre>';
-    print_r($obRouter);
-    echo '</pre>'; exit;*/

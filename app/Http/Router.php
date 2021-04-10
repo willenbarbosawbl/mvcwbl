@@ -230,4 +230,14 @@
                 return new Response($e->getCode(), $e->getMessage());
             }
         }
+
+        /**
+         * Método responsável por redirecionar a URL
+         * @param string $route
+         */
+        public function redirect($route){
+            $URL = $this->url.$route;
+            header("Location: ".$URL);
+            exit;
+        }
     }
