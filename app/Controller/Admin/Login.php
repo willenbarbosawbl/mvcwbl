@@ -33,8 +33,6 @@
          * @return String
          */
         public static function getLogin($request, $typeMessage = null, $Message = null){
-            //echo password_hash('wbl1305a', PASSWORD_DEFAULT).'<br />';
-            //echo password_hash('willenbarbosawbl@gmail.com-wbl1305a', PASSWORD_DEFAULT);exit;
             //CONTEÚDO DA PÁGINA DE LOGIN
             $content = View::render('admin/login',[
                 "status" => self::Status($typeMessage, $Message)
@@ -83,10 +81,6 @@
             SessionLogin::Login($obUser);
 
             $request->getRouter()->redirect('/admin');
-
-            /*echo '<pre>';
-            print_r($_SESSION);
-            echo '</pre>';exit;*/
 
         }
 
